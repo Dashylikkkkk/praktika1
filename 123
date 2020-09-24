@@ -1,0 +1,33 @@
+using System;
+using System.IO;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace WFiles
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int q;
+            Console.Write("Введите номер задания: ");
+            q = Convert.ToInt32(Console.ReadLine());
+            switch (q)
+            {
+                case 1:
+                    zadanie1.Drive();
+                    break;
+                case 2:
+                    zadanie2.Txt();
+                    break;
+                case 3:
+                   zadanie3.Json();
+                    break;
+                case 4:
+                    zadanie4.Xml();
+                    break;
+            }
+        }
+    }
+}
