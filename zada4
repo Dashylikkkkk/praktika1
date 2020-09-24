@@ -1,0 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Xml;
+using System.Xml.Linq;
+
+namespace WFiles
+{
+    class zadanie4
+    {
+        public static void Xml()
+        {
+
+            int id = 1;
+
+            string File3 = "E:/Dasha/staff.xml";
+
+            XDocument staff = new XDocument(
+             new XElement("Staff",
+              new XElement("Boys",
+                  new XAttribute("id", id++),
+                  new XElement("Name", "Danya"),
+                  new XElement("Company", "HSE"),
+                  new XElement("Age", "18")),
+              new XElement("Girls",
+                  new XAttribute("id", id++),
+                  new XElement("Name", "Dasha"),
+                  new XElement("Company", "Mirea"),
+                  new XElement("Age", "18")))
+              );
+
+           staff.Save(File3);
+
+            XDocument doc = XDocument.Load(File3);
+            foreach (XElement el in doc.Root.Elements())
+            {
+                Console.WriteLine("{0} {1}", el.Name, el.Attribute("id").Value);
+                Console.WriteLine("  Attributes:");
+
+                foreach (XAttribute attr in el.Attributes())
+                    Console.WriteLine("    {0}", attr);
+                Console.WriteLine("  Elements:");
+
+                foreach (XElement element in el.Elements())
+                    Console.WriteLine("    {0}: {1}", element.Name, element.Value);
+            }
+
+
+
+        }
+    }
+}
