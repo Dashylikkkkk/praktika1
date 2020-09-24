@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.IO;
+using System.Text.Json;
+using System.Threading.Tasks;
+
+
+namespace WFiles
+{
+    public class Person
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
+    }
+
+    class zadanie3
+    {
+        public static void Json()
+        {
+            string file2 = @"E:\Dasha\.txt";
+
+
+            Person dashik = new Person { Name = "Tazik", Age = 7 };
+            string json = JsonSerializer.Serialize<Person>(dashik);
+
+
+            using (FileStream fst = File.Create(file2))
+            {
+                byte[] info = new UTF8Encoding(true).GetBytes(json);
+                fst.Write(info, 0, info.Length);
+            }
+
+            using (StreamReader str = File.OpenText(file2))
+            {
+                string s = "";
+
+                Console.Write("Текст из файла: ");
+
+                while ((s = str.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+
+            }
+
+            Person restoredPerson = JsonSerializer.Deserialize<Person>(json);
+            Console.Write($"Имя десеререализованной строки: {restoredPerson.Name}");
+
+           // File.Delete(file2);
+        }
+    }
+}
