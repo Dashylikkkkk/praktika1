@@ -13,6 +13,7 @@ namespace WFiles
             int q;
             Console.Write("Введите номер задания: ");
             q = Convert.ToInt32(Console.ReadLine());
+
             switch (q)
             {
                 case 1:
@@ -21,12 +22,20 @@ namespace WFiles
                 case 2:
                     zadanie2.Txt();
                     break;
+
                 case 3:
                    zadanie3.Json();
                     break;
+
                 case 4:
                     zadanie4.Xml();
                     break;
+
+                case 5:
+                    zadanie5.Zip();
+                    break;
+
+            
             }
         }
     }
