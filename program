@@ -19,6 +19,7 @@ namespace WFiles
         Console.WriteLine("3- задание 3");
         Console.WriteLine("4- задание 4");
         Console.WriteLine("5- задание 5");        
+        Console.WriteLine("6- выход");
         int q;
         Console.Write("Введите номер задания: ");
         q = Convert.ToInt32(Console.ReadLine());
@@ -44,6 +45,9 @@ namespace WFiles
             zadanie5.Zip();
             break;
 
+          case 6:
+            Environment.Exit(0);
+            break;
         }
       }
       
