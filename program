@@ -6,37 +6,46 @@ using System.Text;
 using System.Threading.Tasks;
 namespace WFiles
 {
-    class Program
+   class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+      bool d = true;
+      while (d)
+      {
+        
+        Console.WriteLine("1- задание 1");
+        Console.WriteLine("2- задание 2");
+        Console.WriteLine("3- задание 3");
+        Console.WriteLine("4- задание 4");
+        Console.WriteLine("5- задание 5");        
+        int q;
+        Console.Write("Введите номер задания: ");
+        q = Convert.ToInt32(Console.ReadLine());
+
+        switch (q)
         {
-            int q;
-            Console.Write("Введите номер задания: ");
-            q = Convert.ToInt32(Console.ReadLine());
+          case 1:
+            zadanie1.Drive();
+            break;
+          case 2:
+            zadanie2.Txt();
+            break;
 
-            switch (q)
-            {
-                case 1:
-                    zadanie1.Drive();
-                    break;
-                case 2:
-                    zadanie2.Txt();
-                    break;
+          case 3:
+            zadanie3.Json();
+            break;
 
-                case 3:
-                   zadanie3.Json();
-                    break;
+          case 4:
+            zadanie4.Xml();
+            break;
 
-                case 4:
-                    zadanie4.Xml();
-                    break;
+          case 5:
+            zadanie5.Zip();
+            break;
 
-                case 5:
-                    zadanie5.Zip();
-                    break;
-
-            
-            }
         }
-    }
+      }
+      
+    }   
 }
